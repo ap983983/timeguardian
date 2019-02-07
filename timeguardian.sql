@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2019 at 10:02 AM
+-- Generation Time: Feb 07, 2019 at 06:45 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -31,12 +31,42 @@ CREATE TABLE `admin` (
   `password` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `admin`
+-- Table structure for table `admin_sidebar_links`
 --
 
-INSERT INTO `admin` (`username`, `password`) VALUES
-('ap983983@gmail.com', 'ap983983');
+CREATE TABLE `admin_sidebar_links` (
+  `link_id` int(10) NOT NULL DEFAULT '0',
+  `link_name` varchar(45) NOT NULL,
+  `link_icon` varchar(45) NOT NULL,
+  `link_url` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin_sidebar_links`
+--
+
+INSERT INTO `admin_sidebar_links` (`link_id`, `link_name`, `link_icon`, `link_url`) VALUES
+(1, 'Dashboard', 'fa fa-dashboard', '#'),
+(2, 'Assign Task', 'fa fa-paper-plane', '#'),
+(3, 'Verify users', 'fa fa-paper-plane', '#'),
+(4, 'Active users', 'fa fa-unlock', '#');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_sidebar_sublinks`
+--
+
+CREATE TABLE `admin_sidebar_sublinks` (
+  `sublink_id` int(10) NOT NULL DEFAULT '0',
+  `sublink_name` varchar(45) NOT NULL,
+  `sublink_icon` varchar(45) NOT NULL,
+  `sublink_url` varchar(45) NOT NULL,
+  `link_id` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -475,6 +505,19 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`username`);
 
 --
+-- Indexes for table `admin_sidebar_links`
+--
+ALTER TABLE `admin_sidebar_links`
+  ADD PRIMARY KEY (`link_id`);
+
+--
+-- Indexes for table `admin_sidebar_sublinks`
+--
+ALTER TABLE `admin_sidebar_sublinks`
+  ADD PRIMARY KEY (`sublink_id`),
+  ADD KEY `link_id` (`link_id`);
+
+--
 -- Indexes for table `contact_us`
 --
 ALTER TABLE `contact_us`
@@ -629,12 +672,12 @@ ALTER TABLE `student_recenttask`
 -- AUTO_INCREMENT for table `student_sidebar_links`
 --
 ALTER TABLE `student_sidebar_links`
-  MODIFY `link_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `link_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `student_sidebar_sublinks`
 --
 ALTER TABLE `student_sidebar_sublinks`
-  MODIFY `sublink_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '				', AUTO_INCREMENT=91;
+  MODIFY `sublink_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '				', AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
