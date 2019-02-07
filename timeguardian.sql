@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2019 at 06:45 AM
+-- Generation Time: Feb 07, 2019 at 08:12 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -387,6 +387,18 @@ CREATE TABLE `student_recenttask` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `student_score`
+--
+
+CREATE TABLE `student_score` (
+  `student_id` int(10) NOT NULL DEFAULT '0',
+  `sub_id` varchar(6) NOT NULL DEFAULT '0',
+  `marks` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student_sidebar_links`
 --
 
@@ -455,12 +467,12 @@ INSERT INTO `subjects` (`sub_id`, `sub_name`, `image`, `course`, `branch`, `seme
 ('KAS103', 'Mathematics-1', 'M_1.jpg', 'B.Tech', 'CSE', '1'),
 ('KAS201', 'Physics1', 'P1.jpg', 'B.Tech', 'CSE', '2'),
 ('KAS202', 'Chemistry1', 'C1.jpg', 'B.Tech', 'CSE', '2'),
-('KAS203', 'Mathematics-2', 'M_2', 'B.Tech', 'CSE', '2'),
+('KAS203', 'Mathematics-2', 'M_2.jpg', 'B.Tech', 'CSE', '2'),
 ('KAS204', 'Professional English', 'PE.jpg', 'B.Tech', 'CSE', '2'),
 ('KCE101', 'EngineeringGraphics&Design ', 'EGD.jpg', 'B.Tech', 'CSE', '1'),
 ('KCE201', 'EngineeringGraphics&Design1', 'EGD.jpg1', 'B.Tech', 'CSE', '2'),
-('KCS101', 'ProgrammingforProblemSolving', 'PFPS', 'B.Tech', 'CSE', '1'),
-('KCS201', 'ProgrammingforProblemSolving1', 'PFPS1', 'B.Tech', 'CSE', '2'),
+('KCS101', 'ProgrammingforProblemSolving', 'PFPS.jpg', 'B.Tech', 'CSE', '1'),
+('KCS201', 'ProgrammingforProblemSolving1', 'PFPS1.jpg', 'B.Tech', 'CSE', '2'),
 ('KEE101', 'BasicElectricalEngineering', 'BEE.jpg', 'B.Tech', 'CSE', '1'),
 ('KEE201', 'BasicElectricalEngineering1', 'BEE1.jpg', 'B.Tech', 'CSE', '2'),
 ('KWS101', 'WorkshopPractice', 'WP.jpg', 'B.Tech', 'CSE', '1'),
